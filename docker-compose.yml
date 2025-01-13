@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  ellamind-challenge:
+    build: .
+    container_name: "ellamind-challenge"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./arcee-agent.Q4_K_M.gguf:/app/arcee-agent.Q4_K_M.gguf
+      - ./my_dataset:/app/my_dataset
+    environment:
+      # Use CPU only
+      - CUDA_VISIBLE_DEVICES=
